@@ -52,20 +52,20 @@ products = [
 
 products_count = len(products)
 
-#print("--------------")
-#print("THERE ARE " + str(products_count) + " PRODUCTS:")
-#print("--------------")
+print("--------------")
+print("THERE ARE " + str(products_count) + " PRODUCTS:")
+print("--------------")
 
 def sort_by_name(any_product):
     return any_product["name"]
 
 sorted_products = sorted(products, key=sort_by_name)
 
-#for p in sorted_products:
-#    #print(p["name"])
-#    #price_usd = # p["price"] # "$4.99"
-#    price_usd = " (${0:.2f})".format(p["price"])
-#    print(" + " + p["name"] + price_usd)
+for p in sorted_products:
+    #print(p["name"])
+    #price_usd = # p["price"] # "$4.99"
+    price_usd = " (${0:.2f})".format(p["price"])
+    print(" + " + p["name"] + price_usd)
 
 #
 # DEPARTMENTS (PART 2)
@@ -105,4 +105,8 @@ unique_departments.sort()
 for d in unique_departments:
     matching_products = [p for p in products if p["department"] == d]
     matching_products_count = len(matching_products)
-    print(d.title() + " (" + str(matching_products_count) + " products)")
+    if matching_products_count > 1:
+        label = "products"
+    else:
+        label = "product"
+    print(" + " + d.title() + " (" + str(matching_products_count) + " " + label + ")")

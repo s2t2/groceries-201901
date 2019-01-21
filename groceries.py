@@ -23,36 +23,9 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-products_count = len(products)
-
-print("--------------")
-print("THERE ARE " + str(products_count) + " PRODUCTS:")
-print("--------------")
-
-def sort_by_name(any_product):
-    return any_product["name"]
-
-sorted_products = sorted(products, key=sort_by_name)
-
-
-
-
-
-# {
-#   "id":1,
-#   "name": "Chocolate Sandwich Cookies",
-#   "department": "snacks",
-#   "aisle": "cookies cakes",
-#   "price": 3.50
-# }
-for p in sorted_products:
-    #print(p["name"])
-    #price_usd = # p["price"] # "$4.99"
-    price_usd = " (${0:.2f})".format(p["price"])
-    print(" + " + p["name"] + price_usd)
-
-
-
+#
+# PRODUCTS (PART 1)
+#
 # --------------
 # THERE ARE 20 PRODUCTS:
 # --------------
@@ -76,6 +49,27 @@ for p in sorted_products:
 #  + Saline Nasal Mist ($16.00)
 #  + Smart Ones Classic Favorites Mini Rigatoni With Vodka Cream Sauce ($6.99)
 #  + Sparkling Orange Juice & Prickly Pear Beverage ($2.99)
+
+products_count = len(products)
+
+#print("--------------")
+#print("THERE ARE " + str(products_count) + " PRODUCTS:")
+#print("--------------")
+
+def sort_by_name(any_product):
+    return any_product["name"]
+
+sorted_products = sorted(products, key=sort_by_name)
+
+#for p in sorted_products:
+#    #print(p["name"])
+#    #price_usd = # p["price"] # "$4.99"
+#    price_usd = " (${0:.2f})".format(p["price"])
+#    print(" + " + p["name"] + price_usd)
+
+#
+# DEPARTMENTS (PART 2)
+#
 # --------------
 # THERE ARE 10 DEPARTMENTS:
 # --------------
@@ -89,3 +83,20 @@ for p in sorted_products:
 #  + Pantry (2 products)
 #  + Personal Care (2 products)
 #  + Snacks (2 products)
+
+departments = []
+
+for p in products:
+    #print(p["department"])
+    #departments.append(p["department"])
+    if p["department"] not in departments:
+        departments.append(p["department"])
+
+department_count = len(departments)
+
+print("--------------")
+print("THERE ARE " + str(department_count) + " DEPARTMENTS:")
+print("--------------")
+
+for d in departments:
+    print(d)
